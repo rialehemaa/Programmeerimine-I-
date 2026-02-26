@@ -17,8 +17,8 @@ public class Alamfunktsioonid
         double hind = double.Parse(Console.ReadLine());
         double kytusKokku = (km / 100) * kulu100;
         double maksumus = kytusKokku * hind;
-        Console.WriteLine("$Kütust kulus kokku:{kytusKokku:F2} l");
-        Console.WriteLine("$Reisi maksumus: {maksumus:F2} €");
+        Console.WriteLine($"Kütust kulus kokku:{kytusKokku:F2} l");
+        Console.WriteLine($"Reisi maksumus: {maksumus:F2} EUR");
 
     }
     public static void Isikukood()
@@ -28,10 +28,10 @@ public class Alamfunktsioonid
         string ik = Console.ReadLine();
         if (ik.Length != 11)
         {
-            Console.WriteLine("Viga.Peab olla 11 märki!");
+            Console.WriteLine("Viga.Isikukood peab olla 11 märki!");
             return;
         }
-        int esimene = int.Parse(ik.Substring(0, 11));
+        int esimene = int.Parse(ik.Substring(0, 1));
         string sugu;
         if (esimene == 1 || esimene == 3 || esimene == 5)
             sugu = "Mees";
@@ -43,7 +43,7 @@ public class Alamfunktsioonid
         string aasta = ik.Substring(1, 2);
         string kuu = ik.Substring(3, 2);
         string paev = ik.Substring(5, 2);
-        Console.WriteLine("Oled {sugu}, sündinud {paev}.{kuu}.{aasta}.");
+        Console.WriteLine($"Oled {sugu}, sündinud {paev}.{kuu}.{aasta}.");
     }
 
     public static void TaringuMang()
@@ -68,10 +68,23 @@ public class Alamfunktsioonid
 
         Console.WriteLine("Viskete summad:");
         foreach (int s in summad)
-            Console.Write(s + " ");
+        Console.Write(s + " ");
 
         Console.WriteLine();
         Console.WriteLine($"Duubleid: {duublid}");
         Console.WriteLine($"Kõikide visete kogusumma: {kogusumma}");
+    }
+
+    public static Tuple<double, double> ArvutaPalk(double brutopalk)
+    {
+        double maksuvaba = brutopalk < 1200 ? 654 : 0;
+        double tulumaks = (brutopalk - maksuvaba) * 0.20;
+        double tootuskindlustus = brutopalk * 0.016;
+        double kogumispension = brutopalk * 0.02;
+
+        double maksud = tulumaks + tootuskindlustus + kogumispension;
+        double netopalk = brutopalk - maksud;
+
+        return new Tuple<double, double>(maksuvaba, netopalk);
     }
 }
