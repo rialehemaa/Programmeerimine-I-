@@ -1,8 +1,9 @@
-﻿using System;
+using naidis_iktpv25;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace naidis_iktpv25
+namespace Näidis_IKTpv25
 {
     class StartPage
     {
@@ -15,6 +16,7 @@ namespace naidis_iktpv25
                 Console.WriteLine("PEAMENÜÜ ");
                 Console.WriteLine("1 - Osa 2 ülesanded");
                 Console.WriteLine("2 - Osa 3 ülesanded");
+                Console.WriteLine("3 - Osa 4 ülesanded");
                 Console.WriteLine("0 - Välju");
                 Console.Write("Valik: ");
 
@@ -27,6 +29,9 @@ namespace naidis_iktpv25
                         break;
                     case "2":
                         Osa3_funktsioonid.Menuu();
+                        break;
+                    case "3":
+                        Osa4_funktsioonid.Menuu();
                         break;
                     case "0":
                         run = false;
