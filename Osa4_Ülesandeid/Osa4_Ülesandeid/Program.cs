@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -20,6 +20,7 @@ namespace Osa4_Ülesandeid
                 Console.WriteLine("3 - Koostisosade muutmine listis");
                 Console.WriteLine("4 - Külmkapi kontroll");
                 Console.WriteLine("5 - Uuendatud nimekirja salvestamine");
+                Console.WriteLine("6 - Itaalia restorani menüü");
                 Console.WriteLine("0 - Välju");
                 Console.Write("Valik: ");
 
@@ -32,12 +33,13 @@ namespace Osa4_Ülesandeid
                     case "3": MuudaKoostisosad(); break;
                     case "4": OtsiKoostisosa(); break;
                     case "5": SalvestaListFaili(); break;
+                    case "6": ItaaliaMenuu();break;
                     case "0": run = false; break;
                 }
             }
         }
 
-        // ÜLESANNE 1
+        //1
         static void SalvestaToit()
         {
             try
@@ -59,7 +61,7 @@ namespace Osa4_Ülesandeid
             }
         }
 
-        // ÜLESANNE 2
+        //2
         static void LoeMenuu()
         {
             try
@@ -81,7 +83,7 @@ namespace Osa4_Ülesandeid
             }
         }
 
-        // ÜLESANNE 3
+        //3
         static void MuudaKoostisosad()
         {
             koostisosad.Clear();
@@ -113,7 +115,7 @@ namespace Osa4_Ülesandeid
             }
         }
 
-        // ÜLESANNE 4
+        //4
         static void OtsiKoostisosa()
         {
             Console.Write("Sisesta koostisosa: ");
@@ -125,7 +127,7 @@ namespace Osa4_Ülesandeid
                 Console.WriteLine("Seda koostisosa retseptis ei ole.");
         }
 
-        // ÜLESANNE 5
+        //5
         static void SalvestaListFaili()
         {
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Koostisosad.txt");
@@ -133,6 +135,50 @@ namespace Osa4_Ülesandeid
             File.WriteAllLines(path, koostisosad);
 
             Console.WriteLine("Uus retsept on edukalt faili salvestatud!");
+        }
+
+        //6
+        static void ItaaliaMenuu()
+        {
+            try
+            {
+                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Menuu.txt");
+                Console.WriteLine(path); // для проверки пути
+
+                List<Tuple<string, string, double>> menyyList = new List<Tuple<string, string, double>>();
+
+                string[] read = File.ReadAllLines(path);
+
+                foreach (string rida in read)
+                {
+                    if (string.IsNullOrWhiteSpace(rida))
+                        continue;
+
+                    string[] osad = rida.Split(';');
+
+                    if (osad.Length < 3)
+                        continue;
+
+                    string roaNimi = osad[0];
+                    string koostisosad = osad[1];
+                    double hind = double.Parse(osad[2]);
+
+                    menyyList.Add(Tuple.Create(roaNimi, koostisosad, hind));
+                }
+
+                Console.WriteLine("\nITAALIA RESTORANI MENÜÜ\n");
+
+                foreach (var roog in menyyList)
+                {
+                    Console.WriteLine($"{roog.Item1.PadRight(30)} {roog.Item3} €");
+                    Console.WriteLine($"   {roog.Item2}");
+                    Console.WriteLine();
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Viga faili lugemisel!");
+            }
         }
     }
 }
