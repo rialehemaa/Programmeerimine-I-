@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "5OsaFunkTeor": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
