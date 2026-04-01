@@ -1,60 +1,56 @@
-﻿using Kontrolltöö;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Kontrolltoo
-{
-    class StartPage
-
+namespace Kontrolltöö
     {
-        static void Main(string[] args)
+       internal class StartPage
         {
-            bool jooksutab = true;
-
-            while (jooksutab)
+        public static void Main(string[] args)
+        {
+            Menuu();
+        }
+        public static void Menuu()
             {
-                Console.WriteLine("MENÜÜ");
-                Console.WriteLine("1 - Kütuse kalkulaator");
-                Console.WriteLine("2 - Isikukoodi analüüs");
-                Console.WriteLine("3 - Täringumäng");
-                Console.WriteLine("4 - Palgaarvestus");
-                Console.WriteLine("0 - Välju");
-                Console.Write("Vali tegevus: ");
-
-                string valik = Console.ReadLine();
-
-                switch (valik)
+             bool run = true; 
+             while (run)
                 {
-                    case "1":
-                        Alamfunktsioonid.KytuseKalkulaator();
-                        break;
+                    Console.WriteLine("\nMenuu");
+                    Console.WriteLine("1 - Kirjuta logi");
+                    Console.WriteLine("2 - Riigi otsing");
+                    Console.WriteLine("3 - Loe ja arvuta");
+                    Console.WriteLine("4 - Halda autosid");
+                    Console.WriteLine("0 - Valju");
 
-                    case "2":
-                        Alamfunktsioonid.Isikukood();
-                        break;
+                    string v = Console.ReadLine();
 
-                    case "3":
-                        Alamfunktsioonid.TaringuMang();
-                        break;
+                    switch (v)
+                    {
+                        case "1":
+                            AndmeFunktsioonid.KirjutaLogi("Kasutaja logis sisse");
+                            break;
 
-                    case "4":
-                        Console.Write("Sisesta brutopalk: ");
-                        double bruto = double.Parse(Console.ReadLine());
+                        case "2":
+                            AndmeFunktsioonid.RiigiOtsing();
+                            break;
 
-                        var tulemus = Alamfunktsioonid.ArvutaPalk(bruto);
+                        case "3":
+                            var result = AndmeFunktsioonid.LoeJaArvuta("arvud.txt");
+                            Console.WriteLine($"Summa: {result.Item1}, Keskmine: {result.Item2}");
+                            break;
 
-                        Console.WriteLine($"Maksuvaba tulu: {tulemus.Item1:F2} EUR");
-                        Console.WriteLine($"Netopalk: {tulemus.Item2:F2} EUR");
-                        break;
+                        case "4":
+                            AndmeFunktsioonid.HaldaAutosid();
+                            break;
 
-                    case "0":
-                        jooksutab = false;
-                        break;
+                        case "0":
+                            return;
 
-                    default:
-                        Console.WriteLine("Vale valik!");
-                        break;
+                        default:
+                            Console.WriteLine("Vale valik!");
+                            break;
+                    }
                 }
             }
         }
     }
-}
