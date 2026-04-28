@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace OOP
 {
@@ -22,6 +23,30 @@ namespace OOP
                 // Polümorfism teeb siin imesid! 
                 // C# teab ise, kas käivitada Õpetaja või Õpilase Kirjelda() meetod.
                 isik.Kirjelda();
+            }
+        }
+
+        public void KuvaAinultOpilased()
+        {
+            Console.WriteLine("\n--- AINULT ÕPILASED ---");
+
+            foreach (var isik in inimesed)
+            {
+                if (isik is Õpilane)
+                {
+                    isik.Kirjelda();
+                }
+            }
+        }
+
+        public void OtsiNimeJärgi(string otsitavNimi)
+        {
+            foreach (var isik in inimesed)
+            {
+                if (isik.Nimi.Contains(otsitavNimi))
+                {
+                    isik.Kirjelda();
+                }
             }
         }
     }

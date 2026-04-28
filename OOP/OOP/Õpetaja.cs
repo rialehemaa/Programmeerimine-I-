@@ -4,15 +4,25 @@ using System.Text;
 
 namespace OOP
 {
-        // Õpetaja pärib klassist Isik (koolon tähistab pärimist)
-        public class Õpetaja : Isik, ITööline
+    // Õpetaja pärib klassist Isik (koolon tähistab pärimist)
+    public class Õpetaja : Isik, ITööline, IHindaja
+    {
+        public Õpetaja() : base()
         {
-            public string Aine { get; set; }
+        }
+
+        public Õpetaja(string nimi, string aine, double tunnitasu) : base(nimi)
+        {
+            Aine = aine;
+            Tunnitasu = tunnitasu;
+        }
+
+        public string Aine { get; set; }
             public double Tunnitasu { get; set; }
             public int Tunnidkuus { get; set; }
             public TööTüüp VäljamakseTüüp { get; set; } = TööTüüp.Palk;
 
-        public void Õpeta()
+            public void Õpeta()
             {
                 Console.WriteLine($"{Nimi} õpetab ainet: {Aine}.");
             }
@@ -27,6 +37,10 @@ namespace OOP
             public double ArvutaPalk()
             {
                 return Tunnitasu * Tunnidkuus; // Palk arvutatakse tunnitasu ja töötatud tundide järgi
+            }
+            public void Hinda(string hinne)
+            {
+            Console.WriteLine($"{Nimi} pani hindeks: {hinne}");
             }
         
     }

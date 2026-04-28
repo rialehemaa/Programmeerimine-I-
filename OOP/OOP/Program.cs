@@ -7,6 +7,16 @@ inimene1.Nimi = "Mati";
 inimene1.Sünniaasta = 2000;
 inimene1.Tervita(); // Väljund: Tere! Mina olen Mati...
 
+try
+{
+    Õpilane test = new Õpilane();
+    test.Nimi = "Test";
+    test.Sünniaasta = 3000;
+}
+catch (ArgumentException ex)
+{
+    Console.WriteLine("Viga: " + ex.Message);
+}
 
 // Päritud Isik klassist, seega saad kasutada Isiku omadusi ja meetodeid
 Õpetaja õpetaja1 = new Õpetaja();
@@ -16,6 +26,7 @@ inimene1.Tervita(); // Väljund: Tere! Mina olen Mati...
 õpetaja1.Tervita(); // Väljund: Tere! Mina olen Eve...
 õpetaja1.Õpeta();   // Väljund: Eve õpetab ainet: Matemaatika.
 
+õpetaja1.Hinda("5");
 
 Console.WriteLine("\n--- Õpilase andmed ---");
 // 2. Loo Õpilase objekti
@@ -79,6 +90,15 @@ ioanna.Aine = "JavaScript";
 ioanna.Tunnitasu = 25;
 ioanna.Tunnidkuus = 80;
 
+Õpetaja op = new Õpetaja("Misha", "Matemaatika", 20);
+
+Kursus kursus = new Kursus
+{
+    Nimi = "Programmeerimine",
+    VastutavÕpetaja = op
+};
+
+kursus.KuvaInfo();
 
 // Saame samasse listi lisada täiesti erinevaid objekte, sest nad kõik on "ITööline"
 palgasaajad.AddRange(new ITööline[] { mati, kadi, juku, peter, ioanna });
@@ -120,6 +140,7 @@ for (int i = 0; i < nimed.Length; i++)
 
 }
 minukool.KuvaKõik();
+minukool.OtsiNimeJärgi("Ma");
 
 // Nüüd saame ühe tsükliga kõigile palgad/toetused välja arvutada
 Console.WriteLine("\n--- Väljamaksed ---");
@@ -134,3 +155,22 @@ foreach (ITööline isik in palgasaajad)
 }
 
 
+Direktor direktor = new Direktor();
+direktor.Nimi = "Boss";
+direktor.Aine = "Juhtimine";
+direktor.Tunnitasu = 50;
+direktor.Tunnidkuus = 100;
+direktor.Lisatasu = 500;
+
+palgasaajad.Add(direktor);
+minukool.LisaInimene(direktor);
+
+Üliõpilane u = new Üliõpilane();
+u.Nimi = "Karl";
+u.Eriala = "IT";
+u.Klass = 1;
+u.Kool = "Ülikool";
+
+minukool.LisaInimene(u);
+palgasaajad.Add(u);
+minukool.KuvaAinultOpilased();

@@ -23,16 +23,25 @@ namespace OOP
         // Avalik omadus (Property) automaatse get/set logikaga
         public string Nimi { get; set; }
 
+        public Isik()
+        {
+        }
+
+        public Isik(string nimi)
+        {
+            Nimi = nimi;
+        }
+
         // Kontrollitud omadus
         public int Sünniaasta
         {
             get { return sünniaasta; }
             set
             {
-                if (value > 1900 && value <= DateTime.Now.Year)
+                if (value >= 1900 && value <= DateTime.Now.Year)
                     sünniaasta = value;
                 else
-                    Console.WriteLine("Vigane sünniaasta!");
+                    throw new ArgumentException("Vigane aasta!");
             }
         }
 
