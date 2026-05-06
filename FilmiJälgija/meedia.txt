@@ -1,0 +1,5 @@
+Film,Inception,2010,vaadatud,5.0,148
+Seriaal,Breaking Bad,2008,vaadatud,4.5,5
+Dokumentaal,Planet Earth,2006,vaatan,5.0,loodus
+Multikas,Frozen,2013,vaadatud,4.0,pere
+Telesaade,MasterChef,2010,vaatamata,4.2,Gordon Ramsay
