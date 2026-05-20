@@ -1,0 +1,14 @@
+C:\Users\opilane\source\repos\Dariia\Programmeerimine-I--main\Loomaaia\Loomaaia\bin\Debug\net10.0\Loomaaia.exe
+C:\Users\opilane\source\repos\Dariia\Programmeerimine-I--main\Loomaaia\Loomaaia\bin\Debug\net10.0\Loomaaia.deps.json
+C:\Users\opilane\source\repos\Dariia\Programmeerimine-I--main\Loomaaia\Loomaaia\bin\Debug\net10.0\Loomaaia.runtimeconfig.json
+C:\Users\opilane\source\repos\Dariia\Programmeerimine-I--main\Loomaaia\Loomaaia\bin\Debug\net10.0\Loomaaia.dll
+C:\Users\opilane\source\repos\Dariia\Programmeerimine-I--main\Loomaaia\Loomaaia\bin\Debug\net10.0\Loomaaia.pdb
+C:\Users\opilane\source\repos\Dariia\Programmeerimine-I--main\Loomaaia\Loomaaia\obj\Debug\net10.0\Loomaaia.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\opilane\source\repos\Dariia\Programmeerimine-I--main\Loomaaia\Loomaaia\obj\Debug\net10.0\Loomaaia.AssemblyInfoInputs.cache
+C:\Users\opilane\source\repos\Dariia\Programmeerimine-I--main\Loomaaia\Loomaaia\obj\Debug\net10.0\Loomaaia.AssemblyInfo.cs
+C:\Users\opilane\source\repos\Dariia\Programmeerimine-I--main\Loomaaia\Loomaaia\obj\Debug\net10.0\Loomaaia.csproj.CoreCompileInputs.cache
+C:\Users\opilane\source\repos\Dariia\Programmeerimine-I--main\Loomaaia\Loomaaia\obj\Debug\net10.0\Loomaaia.dll
+C:\Users\opilane\source\repos\Dariia\Programmeerimine-I--main\Loomaaia\Loomaaia\obj\Debug\net10.0\refint\Loomaaia.dll
+C:\Users\opilane\source\repos\Dariia\Programmeerimine-I--main\Loomaaia\Loomaaia\obj\Debug\net10.0\Loomaaia.pdb
+C:\Users\opilane\source\repos\Dariia\Programmeerimine-I--main\Loomaaia\Loomaaia\obj\Debug\net10.0\Loomaaia.genruntimeconfig.cache
+C:\Users\opilane\source\repos\Dariia\Programmeerimine-I--main\Loomaaia\Loomaaia\obj\Debug\net10.0\ref\Loomaaia.dll
